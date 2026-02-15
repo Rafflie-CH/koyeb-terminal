@@ -1,0 +1,11 @@
+{
+  "name": "web-terminal",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "node-pty": "^1.0.0",
+    "ws": "^8.17.0"
+  }
+}
