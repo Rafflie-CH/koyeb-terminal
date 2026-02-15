@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body style="background:#000;color:#0f0;font-family:monospace">
+<pre id="term"></pre>
+<input id="inp" autofocus style="width:100%;background:black;color:#0f0;border:none;outline:none">
+
+<script>
+const term=document.getElementById("term");
+const ws=new WebSocket("wss://"+location.host);
+
+ws.onmessage=e=>{
+  term.textContent+=e.data;
+  window.scrollTo(0,document.body.scrollHeight);
+};
+
+inp.addEventListener("keydown",e=>{
+ if(e.key==="Enter"){
+  ws.send(inp.value+"\n");
+  inp.value="";
+ }
+});
+</script>
+</body>
+</html>
